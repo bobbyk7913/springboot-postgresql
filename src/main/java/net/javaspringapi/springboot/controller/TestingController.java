@@ -34,7 +34,7 @@ public class TestingController {
 	public ResponseEntity<Testing> getTestingById(@PathVariable(value = "id") Long testingId)
 		throws ResourceNotFoundException {
 		Testing testing = testingRespository.findById(testingId)
-				.orElseThrow(() -> new ResourceNotFoundException("Not found for id :: " + testingId));
+				.orElseThrow(() -> new ResourceNotFoundException("Not found for the record id :: " + testingId));
 		
 		return ResponseEntity.ok().body(testing);
 	}
@@ -44,6 +44,8 @@ public class TestingController {
 	public Testing createTesting(@RequestBody Testing testing) {
 		return this.testingRespository.save(testing);
 	}
+	
 	//update testing
+	
 	//delete testing
 }
